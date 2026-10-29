@@ -1,0 +1,11 @@
+name: ci
+on: pull_request
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo "event repo: ${{ github.repository }} head repo: ${{ github.event.pull_request.head.repo.full_name }}"
+          if [ -n "$LAB_SECRET" ]; then echo "SECRET_VISIBLE=yes"; else echo "SECRET_VISIBLE=no"; fi
+        env:
+          LAB_SECRET: ${{ secrets.LAB_SECRET }}
