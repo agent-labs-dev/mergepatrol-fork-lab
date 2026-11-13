@@ -1,0 +1,18 @@
+warnDays: 30
+staleDays: 365
+idleDays: 90
+secretPatterns: []
+ignore: []
+credentialNames: []
+ignorePaths: []
+sources: []
+keys:
+  - id: lab-secret
+    service: github-actions
+    group: test
+    owner: cjber
+    locations:
+      - github: LAB_SECRET
+    expires: none
+    expiresNote: a test value with no issuer; ci.yml only checks whether a fork run can see it
+    limit: none
